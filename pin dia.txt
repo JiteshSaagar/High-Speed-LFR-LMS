@@ -1,0 +1,46 @@
+=============================================================================
+PAPA BOT PIN DIAGRAM & WIRING MAPPING
+Board: Arduino Nano (ATmega328P)
+Motor Driver: TB6612FNG Dual H-Bridge
+=============================================================================
+
+I2C OLED DISPLAY (128x64 SSD1306):
+----------------------------------
+A4  ->  SDA
+A5  ->  SCL
+VCC ->  5V
+GND ->  GND
+
+TB6612FNG MOTOR DRIVER:
+-----------------------
+D6  ->  PWMA   (Motor 2 / Left Motor Speed PWM ~)
+D5  ->  AIN1   (Motor 2 Direction 1 - INTERCHANGED)
+D4  ->  AIN2   (Motor 2 Direction 2 - INTERCHANGED)
+
+D9  ->  PWMB   (Motor 1 / Right Motor Speed PWM ~)
+D8  ->  BIN1   (Motor 1 Direction 1 - INTERCHANGED)
+D7  ->  BIN2   (Motor 1 Direction 2 - INTERCHANGED)
+
+D10 ->  STNBY  (Standby enable, pulled HIGH)
+VM  ->  Motor Power Supply (7.4V - 12V LiPo/Li-ion)
+VCC ->  5V Arduino
+GND ->  Common Ground
+
+STATUS LEDS:
+------------
+D2  ->  Red LED   (Stopped / Calibrating / Menu)
+D3  ->  Green LED (Active Running)
+
+5-SENSOR ANALOG ARRAY (Line Tracker):
+-------------------------------------
+A0  ->  S0  (Far Left Sensor)
+A1  ->  S1  (Mid Left Sensor)
+A2  ->  S2  (Center Sensor)
+A3  ->  S3  (Mid Right Sensor)
+A6  ->  S4  (Far Right Sensor - Note: A6 is analog-only on Nano)
+
+PUSH BUTTONS (Active LOW with internal pull-up):
+------------------------------------------------
+D12 ->  BNT1 (Move cursor / Next item in menu)
+D11 ->  BNT2 (Select / OK / Confirm start)
+=============================================================================
